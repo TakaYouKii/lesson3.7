@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.example.lesson37.databinding.FragmentCharactersBinding
 
 
@@ -18,11 +20,10 @@ class CharactersFragment : Fragment() {
         Character("https://www.looper.com/img/gallery/the-worst-thing-thats-ever-happened-to-jerry-on-rick-and-morty/intro-1567519981.jpg", "Jerry Smith", "Alive"),
         Character("https://static.wikia.nocookie.net/villains/images/0/07/RickerHD.jpg/revision/latest?cb=20170825132103.jpg", "Prince Nebulon", "Dead"),
         Character("https://static.wikia.nocookie.net/rickandmorty/images/1/1e/S1e7_funny_daddy.png/revision/latest?cb=20160917044623.jpg", "Morty Jr.", "Dead"),
-        Character("https://static.wikia.nocookie.net/xianb/images/1/1b/Vagina.png/revision/latest?cb=20141016030952.jpg", "Principal Gene Vagina", "Dead"),
+        Character("https://static.wikia.nocookie.net/xianb/images/1/1b/Vagina.png/revision/latest?cb=20141016030952.jpg", "Principal Gene", "Dead"),
 
     )
-    private var bundle = Bundle()
-    private var detailFragment:DetailFragment = DetailFragment()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,8 +41,6 @@ class CharactersFragment : Fragment() {
     }
 
     private fun onItemClick(i: Int) {
-        bundle.putSerializable("rick", characterList[i])
-        detailFragment.arguments = bundle
-        requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container, detailFragment).addToBackStack(null).commit()
+        findNavController().navigate(R.id.detailFragment, bundleOf("rick" to characterList[i]))
     }
 }

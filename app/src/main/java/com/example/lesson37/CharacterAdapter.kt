@@ -16,6 +16,7 @@ class CharacterAdapter(val CharacterList: ArrayList<Character>,val onClick:(posi
             val item = CharacterList[adapterPosition]
             binding.tvName.text = item.name
             binding.tvIsAlive.text = item.isAlive
+            binding.tvId.text = (adapterPosition+1).toString()
             item.image?.let { binding.imgItem.loadImage(it) }
             itemView.setOnClickListener {
                 onClick(adapterPosition)
