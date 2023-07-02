@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailFragment"
+    >
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_margin="20dp">
+       <ImageView
+           android:id="@+id/img_detail"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:scaleType="centerCrop"
+           android:src="@drawable/rick"/>
+
+       <TextView
+           android:id="@+id/tv_detail_is_alive"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Alive"
+           android:textSize="24sp"
+           android:textColor="@color/grey"
+           android:layout_marginTop="10dp"
+           />
+
+       <TextView
+           android:id="@+id/tv_detail_name"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Rick Sanchez"
+           android:textSize="28sp"
+           android:textColor="@color/black"
+           android:layout_marginTop="10dp"
+           />
+   </LinearLayout>
+</FrameLayout>
